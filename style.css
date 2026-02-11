@@ -1,0 +1,71 @@
+/* الخطوط والخلفية */
+body {
+    font-family: 'Cairo', sans-serif;
+    background-image: radial-gradient(#d1d5db 1px, transparent 1px);
+    background-size: 40px 40px;
+    background-color: #f3f4f6;
+    padding: 1rem;
+}
+
+.handwritten {
+    font-family: 'Reenie Beanie', cursive;
+    font-size: 1.5rem;
+}
+
+.pin {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    z-index: 10;
+}
+
+.sticky-note {
+    transition: all 0.3s ease;
+    position: relative;
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.1);
+    width: 220px;        /* عرض ثابت لكل النوتس */
+    flex-shrink: 0;      /* منع النوتة من الانكماش */
+}
+
+.sticky-note:hover {
+    transform: scale(1.05) rotate(0deg) !important;
+    z-index: 20;
+}
+
+/* النكهات */
+.vanilla-note { background-color: #fdf4ff; border-left: 5px solid #bae6fd; color: #0369a1; }
+.butterfly-note { background-color: #fff1f2; border-left: 5px solid #fda4af; color: #be123c; }
+.luxury-note { background-color: #550000; border-left: 5px solid #cccccc; color: #ffffff; }
+.shared-note { background-color: #ffffff; border-bottom: 5px solid #9ca3af; color: #374151; }
+
+/* البورد - لكل الأقسام */
+.board-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+/* النوتة المشطوبة */
+.sticky-note.done p {
+  text-decoration: line-through; /* الخط على الكلام */
+  color: #9ca3af; /* يخلي النص رمادي */
+  opacity: 0.6;   /* تخفيف النوتة شوية */
+}
+
+/* لما الماوس يكون على أي نوتة */
+.sticky-note {
+  cursor: pointer; /* شكل اليد مع إصبع واحد، زي الضغط على لينك */
+  transition: transform 0.2s;
+}
+
+/* optional: حركة بسيطة لما تدوسي */
+.sticky-note:active {
+  transform: scale(1.05); /* تكبير خفيف عشان يحس بالضغط */
+}
